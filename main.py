@@ -39,7 +39,7 @@ def should_carry_umbrella(forecast, precipitation):
     return False
 
 def send_whatsapp_message(message_body):
-    my_phone_no = os.environ.get('MY_PHONE_NO')
+    my_phone_no = os.environ.get('MYPHONE_NO')
     message = client.messages.create(
         from_='whatsapp:+14155238886',
         body=message_body,
