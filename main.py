@@ -43,7 +43,7 @@ def send_whatsapp_message(message_body):
     message = client.messages.create(
         from_='whatsapp:+14155238886',
         body=message_body,
-        to=f'whatsapp:{my_phone_no}'
+        to=f'whatsapp:+917984617195'
     )
 
 city = 'gharuan'
