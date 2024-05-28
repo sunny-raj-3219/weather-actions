@@ -2,8 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 from twilio.rest import Client
 import os
-import schedule
-import time
 
 account_sid = 'ACccb4c5a3ec24961f18993bee99912ebb'
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
