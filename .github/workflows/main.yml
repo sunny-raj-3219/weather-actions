@@ -10,21 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 twilio
+          pip install -r requirements.txt
 
       - name: Run main.py
         env:
-          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}  # Twilio Auth Token from secrets
-          MY_PHONE_NO: ${{ secrets.MY_PHONE_NO }}              # Your phone number from secrets
-        run: |
-          python main.py
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          MY_PHONE_NO: ${{ secrets.MY_PHONE_NO }}
+        run: python main.py
