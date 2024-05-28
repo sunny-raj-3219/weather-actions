@@ -7,6 +7,9 @@ account_sid = 'ACccb4c5a3ec24961f18993bee99912ebb'
 auth_token = os.environ.get('TWILIO_AUTH_TOKEN')
 client = Client(account_sid, auth_token)
 
+my_phone_no = os.environ.get('MY_PHONE_NO')
+
+
 def get_weather_data(city):
     query = f"weather in {city}"
     url = f"https://www.google.com/search?q={query}"
@@ -39,11 +42,11 @@ def should_carry_umbrella(forecast, precipitation):
     return False
 
 def send_whatsapp_message(message_body):
-    my_phone_no = os.environ.get('MYPHONE_NO')
+    my_phone_no = os.environ.get('MY_PHONE_NO')
     message = client.messages.create(
         from_='whatsapp:+14155238886',
         body=message_body,
-        to=f'whatsapp:+917984617195'
+        to=f'whatsapp:{my_phone_no}'
     )
 
 city = 'gharuan'
