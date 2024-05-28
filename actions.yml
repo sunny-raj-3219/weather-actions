@@ -24,5 +24,7 @@ jobs:
 
       - name: Run main.py
         env:
-          A: ${{ secrets.TWILIO_AUTH_TOKEN }}  # Ensure you have this secret set in your repository
-        run: python main.py
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}  # Twilio Auth Token from secrets
+          MY_PHONE_NO: ${{ secrets.MY_PHONE_NO }}              # Your phone number from secrets
+        run: |
+          python main.py
