@@ -6,7 +6,7 @@ import schedule
 import time
 
 account_sid = 'ACccb4c5a3ec24961f18993bee99912ebb'
-auth_token = os.environ.get('A')
+auth_token = TWILIO_AUTH_TOKEN
 client = Client(account_sid, auth_token)
 
 
@@ -50,7 +50,7 @@ def should_carry_umbrella(forecast, precipitation):
 def send_whatsapp_message(message_body):
     message = client.messages.create(from_='whatsapp:+14155238886',
                                      body=message_body,
-                                     to='whatsapp:+917984617195')
+                                     to='whatsapp:myphone_no')
 
 
 city = 'gharuan'
