@@ -3,7 +3,8 @@ name: run main.py
 on:
   schedule:
    # / - cron: '0 * * * *'  # Runs every hour
-    - cron: '*/5 * * * *'
+
+    - cron: '* * * * *'
     - cron: '0 6 * * *'  # Runs every day at 6 AM
 
 jobs:
