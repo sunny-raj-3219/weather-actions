@@ -1,0 +1,30 @@
+name: run main.py
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour
+    - cron: '0 6 * * *'  # Runs every day at 6 AM
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 twilio
+
+      - name: Run main.py
+        env:
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}  # Twilio Auth Token from secrets
+          MY_PHONE_NO: ${{ secrets.MY_PHONE_NO }}              # Your phone number from secrets
+        run: |
+          python main.py
