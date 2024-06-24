@@ -41,7 +41,7 @@ def get_weather_data(city):
 
 
 def should_carry_umbrella(precipitation):
-    return int(precipitation.strip('%')) > 10
+    return int(precipitation.strip('%')) > 35
 
 
 def send_whatsapp_message(message_body):
