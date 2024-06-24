@@ -96,10 +96,10 @@ def check_precipitation_change():
 
 
 # Determine which function to run based on the current time
-current_hour = datetime.now().hour
+# current_hour = datetime.now().hour
 
-if current_hour == 6:
-    send_daily_weather_update()
-else:
-    check_precipitation_change()
-print('running...')
+# if current_hour == 6:
+#     send_daily_weather_update()
+# else:
+#     check_precipitation_change()
+# print('running...')
