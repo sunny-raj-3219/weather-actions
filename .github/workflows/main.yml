@@ -29,22 +29,21 @@
 #           MY_PHONE_NO: ${{ secrets.MY_PHONE_NO }}
 #         run: python main.py
 
-name: Daily Weather Update
+name: run main.py
 
 on:
   schedule:
     - cron: '0 6 * * *'  # Runs every day at 6 AM
 
 jobs:
-  send-daily-weather-update:
+  run:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
@@ -53,11 +52,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-
-      - name: Run daily weather update script
-        run: python your_script.py
+      - name: Run main.py
         env:
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           MY_PHONE_NO: ${{ secrets.MY_PHONE_NO }}
-
-
+        run: python main.py
