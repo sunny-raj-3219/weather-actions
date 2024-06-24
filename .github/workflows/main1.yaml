@@ -2,7 +2,9 @@ name: Check Precipitation Change
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    #- cron: '0 * * * *'  # Runs every hour
+    - cron: '* * * * *'  # Runs every minute
+
 
 jobs:
   check-precipitation-change:
